@@ -11,8 +11,7 @@
 .mtj.tmp/
 *.iml
 
-
-/,target
+*/target/*
 .idea/
 /.idea
 out/
