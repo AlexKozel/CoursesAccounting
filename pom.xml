@@ -4,50 +4,86 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.AlexKozel.coursesAccounting</groupId>
-    <artifactId>com.AlexKozel.coursesAccounting</artifactId>
-    <packaging>pom</packaging>
+    <groupId>com.epam.laboratory</groupId>
+    <artifactId>student-accounting</artifactId>
     <version>1.0-SNAPSHOT</version>
+
+    <name>CRUD Project For Students And Courses</name>
+
+    <packaging>pom</packaging>
+
     <modules>
         <module>web</module>
         <module>core</module>
         <module>dao</module>
     </modules>
-    <properties>
-        <junit.ver>3.8</junit.ver>
-        <checkstyle.version>8.22</checkstyle.version>
-        <jacoco.version>0.8.2</jacoco.version>
-    </properties>
 
-    <name>students-account</name>
-    <url>http://maven.apache.org</url>
+    <properties>
+        <junit.version>5.5.0</junit.version>
+        <checkstyle.version>3.1.0</checkstyle.version>
+        <jacoco.version>0.8.2</jacoco.version>
+        <spotbugs.version>3.1.12</spotbugs.version>
+        <mockito.version>3.0.0</mockito.version>
+        <slf4j.version>1.7.26</slf4j.version>
+    </properties>
 
     <dependencyManagement>
         <dependencies>
             <dependency>
-                <groupId>junit</groupId>
-                <artifactId>junit</artifactId>
-                <version>${junit.ver}</version>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-api</artifactId>
+                <version>${slf4j.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.junit.jupiter</groupId>
+                <artifactId>junit-jupiter-api</artifactId>
+                <version>${junit.version}</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.mockito</groupId>
+                <artifactId>mockito-junit-jupiter</artifactId>
+                <version>${mockito.version}</version>
                 <scope>test</scope>
             </dependency>
         </dependencies>
     </dependencyManagement>
 
+    <dependencies>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-junit-jupiter</artifactId>
+        </dependency>
+    </dependencies>
+
     <build>
-        <pluginManagement>
-            <plugins>
-                <plugin>
-                    <groupId>org.jacoco</groupId>
-                    <artifactId>jacoco-maven-plugin</artifactId>
-                    <version>${jacoco.version}</version>
-                </plugin>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-checkstyle-plugin</artifactId>
-                    <version>${maven-checkstyle-plugin.version}</version>
-                </plugin>
-            </plugins>
-        </pluginManagement>
+        <plugins>
+            <plugin>
+                <groupId>org.jacoco</groupId>
+                <artifactId>jacoco-maven-plugin</artifactId>
+                <version>${jacoco.version}</version>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-checkstyle-plugin</artifactId>
+                <version>${checkstyle.version}</version>
+            </plugin>
+            <plugin>
+                <groupId>com.github.spotbugs</groupId>
+                <artifactId>spotbugs-maven-plugin</artifactId>
+                <version>${spotbugs.version}</version>
+            </plugin>
+        </plugins>
     </build>
 
 </project>
