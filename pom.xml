@@ -4,8 +4,8 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.epam.coursesaccounting</groupId>
-    <artifactId>coursesaccounting</artifactId>
+    <groupId>com.epam.laboratory</groupId>
+    <artifactId>student-accounting</artifactId>
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
     <modules>
@@ -15,32 +15,39 @@
     </modules>
 
     <properties>
-        <junit.version>4.12</junit.version>
+        <junit.version>5.5.0</junit.version>
         <checkstyle.version>3.1.0</checkstyle.version>
         <jacoco.version>0.8.2</jacoco.version>
         <spotbugs.version>3.1.12</spotbugs.version>
+        <mockito.version>3.0.0</mockito.version>
+        <slf4j.version>1.7.26</slf4j.version>
     </properties>
 
-    <name>coursesaccounting</name>
-    <url>http://maven.apache.org</url>
+    <name>CRUD Project For Students And Courses</name>
 
     <dependencyManagement>
         <dependencies>
             <dependency>
-                <groupId>junit</groupId>
-                <artifactId>junit</artifactId>
+                <groupId>org.junit.jupiter</groupId>
+                <artifactId>junit-jupiter-api</artifactId>
                 <version>${junit.version}</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.mockito</groupId>
+                <artifactId>mockito-junit-jupiter</artifactId>
+                <version>${mockito.version}</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-simple</artifactId>
+                <version>${slf4j.version}</version>
                 <scope>test</scope>
             </dependency>
         </dependencies>
     </dependencyManagement>
 
-    <dependencies>
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-        </dependency>
-    </dependencies>
 
     <build>
         <plugins>
